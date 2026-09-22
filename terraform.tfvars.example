@@ -1,0 +1,25 @@
+# Copy this file to terraform.tfvars and fill in real values.
+# terraform.tfvars is gitignored — never commit real project IDs or
+# bucket names you care about keeping private.
+
+project_id  = "my-gcp-project-id"
+bucket_name = "my-globally-unique-bucket-name"
+region      = "US"
+
+storage_class = "STANDARD"
+environment   = "dev"
+
+versioning_enabled          = true
+noncurrent_version_age_days = 30
+
+labels = {
+  owner = "my-team"
+}
+
+# Uncomment and edit to grant IAM roles on the bucket:
+# iam_bindings = [
+#   {
+#     role   = "roles/storage.objectViewer"
+#     member = "user:jane@example.com"
+#   }
+# ]
