@@ -1,6 +1,5 @@
 # Copy this file to terraform.tfvars and fill in real values.
-# terraform.tfvars is gitignored — never commit real project IDs or
-# bucket names you care about keeping private.
+# terraform.tfvars is gitignored — never commit real project IDs or bucket names you care about keeping private.
 
 project_id  = "my-gcp-project-id"
 bucket_name = "my-globally-unique-bucket-name"

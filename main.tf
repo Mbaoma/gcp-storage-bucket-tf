@@ -4,8 +4,6 @@ resource "google_storage_bucket" "cloudb00stabucket" {
   storage_class = var.storage_class
   labels        = merge(var.labels, { environment = var.environment })
 
-  # GCP-recommended: disables legacy per-object ACLs, enforces IAM only.
-  # Required by many enterprise org policies.
   uniform_bucket_level_access = true
 
   # Blocks all public access at the bucket level, regardless of IAM.
@@ -15,9 +13,6 @@ resource "google_storage_bucket" "cloudb00stabucket" {
     enabled = var.versioning_enabled
   }
 
-  # Only meaningful when versioning is enabled: once an object is
-  # overwritten or deleted, its previous ("noncurrent") version sticks
-  # around until this rule deletes it.
   lifecycle_rule {
     condition {
       days_since_noncurrent_time = var.noncurrent_version_age_days
